@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @item.restaurant.name %>
+</p>
+
+<p>
+  <strong>Reviews:</strong>
+  <ul>
+  <% @item.reviews.each do |review| %>
+  	<li><%= link_to review.contents, review_url %> </li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
