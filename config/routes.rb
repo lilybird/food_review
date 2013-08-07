@@ -1,4 +1,10 @@
 FoodReview::Application.routes.draw do
+
+  get '/signin' => 'sessions#new', :as => 'sign_in'
+  post '/sessions/create' => 'sessions#create'
+
+  delete '/signout' => 'sessions#destroy', :as => 'sign_out'
+
   resources :restaurants
 
   resources :items

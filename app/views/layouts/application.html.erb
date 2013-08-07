@@ -8,6 +8,25 @@
 </head>
 <body>
 
+<div class="navbar">
+  <a class="navbar-brand" href="<%= reviews_url %>">Reviews</a>
+  <ul class="nav navbar-nav">
+    <li><a href="<%= items_url %>">Items</a></li>
+    <li><a href="<%= restaurants_url %>">Restaurants</a></li>
+    <li><a href="<%= users_url %>">Users</a></li>
+  </ul>
+</div>
+
+<div class="nav navbar-nav pull-right">
+<% if session[:name] %>
+	<li><%= link_to "Welcome, #{session[:name]}", "#" %></li>
+	<li><%= link_to "sign out", sign_out_url, method: 'delete' %></li>
+<% else %>
+	<li><%= link_to "sign in", sign_in_url %></li>
+<% end %>
+</div>
+
+
 <div class="container">
 <%= yield %>
 </div>
